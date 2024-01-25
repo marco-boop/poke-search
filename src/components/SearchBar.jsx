@@ -43,7 +43,7 @@ const SearchBar = () => {
   return (
     <>
       <h1 className="text-2xl font-bold mb-2 ">Search Pokemon:</h1>
-      <div className="flex bg-white border-black border w-80 sm:w-[800px] rounded-md">
+      <div className="relative flex bg-white border-black border w-80 sm:w-[800px] rounded-md py-4">
         <AiOutlineSearch className="ml-4 text-2xl" />
 
         <input
@@ -53,8 +53,19 @@ const SearchBar = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="ml-2 text-lg w-full focus:outline-none"
         />
+        {pokemonList && (
+          <div className="bg-white text-black w-full z-10 absolute top-14 rounded-md max-h-40 overflow-y-auto">
+            {pokemonList.map((pokemon, index) => (
+              <p
+                key={index}
+                className="pl-4 hover:bg-yellow-300 cursor-pointer"
+              >
+                {pokemon}
+              </p>
+            ))}
+          </div>
+        )}
       </div>
-      {searchQuery}
     </>
   );
 };
