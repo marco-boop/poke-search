@@ -14,7 +14,6 @@ const SearchBar = () => {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonData, setPokemonData] = useState(null);
-  const heightClass = `h-${pokemonData.height}`;
 
   const fetchPokemon = async () => {
     try {
@@ -97,12 +96,12 @@ const SearchBar = () => {
             {pokemonData.name}
           </h2>
           <p className="text-transform: capitalize">
-            {pokemonData.name} is {pokemonData.height} units tall.
+            {pokemonData.name} is {pokemonData.height} units tall. Nice.
           </p>
           <img
             src={pokemonData.sprites.other.home.front_default}
             alt={pokemonData.name}
-            className={heightClass}
+            className="h-50"
           />
 
           {/* <h3>Abilities:</h3> */}
